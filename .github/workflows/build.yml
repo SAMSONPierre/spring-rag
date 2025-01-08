@@ -37,7 +37,8 @@ jobs:
          distribution: 'temurin'
          java-version: '23'
          cache: gradle
-
+     - name: Make gradlew executable
+       run: chmod +x ./gradlew
      - name: Run tests
        run: ./gradlew test
 
@@ -55,6 +56,10 @@ jobs:
           java-version: '23'
           cache: gradle
 
+      
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+       
       - name: Jar with Gradle
         run: ./gradlew jar
 
@@ -74,6 +79,9 @@ jobs:
 
      - name: Package with Gradle
        run: ./gradlew bootJar
+
+     - name: Make gradlew executable
+       run: chmod +x ./gradlew
 
      - name: Log in to Docker Hub
        uses: docker/login-action@v2
