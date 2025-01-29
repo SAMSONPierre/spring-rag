@@ -11,4 +11,13 @@ public class Document {
     private Long id;
 
     private String title;
+
+    // ✅ Add getters
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
 }
