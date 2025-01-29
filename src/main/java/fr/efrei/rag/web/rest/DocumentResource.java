@@ -19,12 +19,17 @@ public class DocumentResource {
 
     @GetMapping("/get-all")
     public List<Document> getAllDocuments() {
-        return documentService.getAllDocuments();
+        return documentService.findAll();
     }
 
     @PostMapping("/create")
     public ResponseEntity<Document> createDocument(@RequestBody Document document) {
-        Document savedDocument = documentService.createDocument(document);
+        Document savedDocument = documentService.buildAndSave(document);
         return ResponseEntity.ok(savedDocument);
+    }
+
+    @PostMapping("/documents/chat2/{user}")
+    public String chat2(@RequestBody String query) throws InterruptedException {
+        return documentService.chat(query);
     }
 }
