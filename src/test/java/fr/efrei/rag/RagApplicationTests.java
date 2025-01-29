@@ -8,6 +8,7 @@ class RagApplicationTests {
 
 	@Test
 	void contextLoads() {
+		assert true;
 	}
 
 }
